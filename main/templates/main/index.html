@@ -1,0 +1,268 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block content %}
+		<!-----firstParent----->
+		<div class="firstParent">
+			<div class="mb-3 mt-4 w-50 offset-md-3 ">
+				<p class = "m-1"><b>Фамилия Имя Отчество</b></p>
+				<input class=" fioFP form-control border border-primary border-2" type="text" placeholder="Фамилия Имя Отчество" required>
+			</div>
+			<div class="mb-3 w-50 offset-md-3">
+				<p class = "m-1"><b>Статус</b></p>
+				<select class="form-select border border-primary border-2" aria-label="Default select example">
+				  <option selected>Выберите Ваш статус</option>
+				  	<option value="Отец">Отец</option>
+					  <option value="Мать">Мать</option>
+					  <option value="Опекун">Опекун</option>
+				</select>
+			</div>
+			<div class="mb-3 w-50 offset-md-3">
+				<p class = "m-1"><b>Документ, подтверждающий статус</b></p>
+				<input class="form-control" type="file" id="formFileMultiple" multiple>
+			</div>
+			<div class="mb-3 w-50 offset-md-3">
+				<p class = "m-1"><b>Контактный номер телефона</b></p>
+				<input class="form-control border border-primary border-2" type="text" placeholder="+79890123456">
+			</div>
+			<div class="mb-3 w-50 offset-md-3">
+				<p class = "m-1"><b>Адрес электронной почты</b></p>
+				<input class="form-control border border-primary border-2" type="email" placeholder="example@mail.ru">
+			</div>
+			<div class="mb-3 w-50 offset-md-3">
+				<input type="checkbox" id = "parent2b">Форма записи данных для второго родителя
+			</div>
+
+			<!-----SecondParent----->
+			<div class = "secondParent" id ="parent2">
+				<div class="mb-3 mt-4 w-50 offset-md-3 ">
+					<p class = "m-1"><b>Фамилия Имя Отчество</b></p>
+					<input class="form-control border border-primary border-2" type="text" placeholder="Фамилия Имя Отчество">
+				</div>
+				<div class="mb-3 w-50 offset-md-3">
+					<p class = "m-1"><b>Статус</b></p>
+					<select class="form-select border border-primary border-2" aria-label="Default select example">
+					  <option selected>Выберите Ваш статус</option>
+					  <option value="Отец">Отец</option>
+					  <option value="Мать">Мать</option>
+					  <option value="Опекун">Опекун</option>
+					</select>
+				</div>
+				<div class="mb-3 w-50 offset-md-3">
+					<p class = "m-1"><b>Документ, подтверждающий статус</b></p>
+					<input class="form-control" type="file" id="formFileMultiple" multiple>
+				</div>
+				<div class="mb-3 w-50 offset-md-3">
+					<p class = "m-1"><b>Контактный номер телефона</b></p>
+					<input class="form-control border border-primary border-2" type="text" placeholder="+79890123456">
+				</div>
+				<div class="mb-3 w-50 offset-md-3">
+					<p class = "m-1"><b>Адрес электронной почты</b></p>
+					<input class="form-control border border-primary border-2" type="email" placeholder="example@mail.ru">
+				</div>
+			</div>
+			<div class="mb-3 w-50 offset-md-3">
+				<input type="checkbox" id = "consent" >Согласие с <a href = "http://www.consultant.ru/document/cons_doc_LAW_61801/315f051396c88f1e4f827ba3f2ae313d999a1873/" style = "text-decoration: none;">обработкой персональных данных</a>
+			</div>
+			<!-----End SecondParent----->
+
+			<div class="mb-3 w-50 offset-md-3">
+				<button type="button" id = "btn" class="btn btn-secondary float-end w-25" disabled = "disabled">Далее</button>
+			</div>
+			<script type = text/javascript>
+				function getKidForm() {
+				  var elem = document.getElementById('kid');
+				  elem.style.display = 'block';
+				  elem.remove();
+			  }
+
+				document.getElementById('btn').onclick = getKidForm;
+
+			</script>
+			<script type = "text/javascript" src = "{% static 'main/js/consentbutton.js' %}"></script>
+			<script type = "text/javascript" src = "{% static 'main/js/secondparentform.js' %}"></script>
+		</div>
+		<!-----End firstParent----->
+
+		<!--Start kid form-->
+		<div class="kid mb-3 mt-4 w-50 offset-md-3" id = "kid"> 
+			<div>
+				<p class = "m-1"><b>Паспортные данные/Свидетельство о рождении</b></p>
+				<input class="form-control border border-primary border-2" type="text" placeholder="Серия и номер паспорта">
+			</div>
+			<div class = "mt-4">
+			  <p class = "m-1"><b>Ксерокопия паспорта(первая страница и регистрация)</b></p>
+			  <input class="form-control" type="file" id="formFileMultiple" multiple>
+			</div>
+			<div class = "mt-4">
+				<p class = "m-1"><b>ФИО ребёнка</b></p>
+				<input class="form-control border border-primary border-2" type="text" placeholder="ФИО ребёнка">
+			</div>
+			<div class = "mt-4">
+				<p class = "m-1"><b>Дата рождения</b></p>
+				<input class="form-control border border-primary border-2" id="datetime" type="date">
+			</div>
+			<div class = "mt-4">
+				<p class = "m-1"><b>Контактный номер телефона</b></p>
+				<input class="form-control border border-primary border-2" type="text" placeholder="Контактный номер телефона">
+			</div>
+			<div class = "mt-4">
+				<p class = "m-1"><b>Адрес по месту прописки</b></p>
+				<input class="form-control border border-primary border-2" type="text" placeholder="Адрес по месту прописки">
+			</div>
+			
+
+			<div  class="mb-3 w-50 mt-4" >
+				<input type="checkbox" id = "consent" >Согласие с <a href = "http://www.consultant.ru/document/cons_doc_LAW_61801/315f051396c88f1e4f827ba3f2ae313d999a1873/" style = "text-decoration: none;">обработкой персональных данных</a>
+			</div>
+
+			<main class="mb-3 w-50 float-end">
+				<button class="btn btn-secondary  float-end mt-4 w-75 js-button-campaign">Далее</button>
+			</main>
+
+			<div class="overlay js-overlay-campaign">
+				<div class="popup js-popup-campaign">
+					<p class = "agreeMsg">В течение 20 дней вы должны выкупить путевку и зарегистрировать данные сертификата о прививках</p>
+					<button type="button" class = "btn btn-secondary agreeBtnCenter mt-4" id = "vaccBtn">Согласен</button>
+					<div class="close-popup js-close-campaign"></div>
+				</div>
+			</div>
+
+		
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type = "text/javascript" src = "{% static 'main/js/modalwindow.js' %}" ></script>
+
+		
+
+		<script type = text/javascript>
+			function getVaccForm() {
+				var element = document.getElementById('vaccination');
+				element.style.display = 'block';
+				
+			}
+
+			document.getElementById('vaccBtn').onclick = getVaccForm;
+
+		</script>
+		</div>
+
+		<div class="vaccination" id = "vaccination">
+			<div class="mb-3 mt-4 w-50 offset-md-3 ">
+				<p class = "m-1"><b>СНИЛС</b></p>
+				<input class="form-control border border-primary border-2" type="text" placeholder="172-838-944 53">
+			</div>
+			<div class="mb-3 mt-4 w-50 offset-md-3 ">
+				<p class = "m-1"><b>Полис</b></p>
+				<input class="form-control border border-primary border-2" type="text" placeholder="8593603475321247">
+			</div>
+			<div class = "mt-4 offset-md-3 w-50">
+				<p class = "m-1"><b>Ксерокопия сертификата о прививках</b></p>
+				<input class="form-control " type="file" id="formFileMultiple" multiple>
+			</div>
+			<div class = "mb-3 mt-4 w-50 offset-md-3">
+				<p class = "m-1"><b>Дата прививки БЦЖ</b></p>
+				<input class="form-control border border-primary border-2" id="datetime" type="date">
+			</div>
+			<div class = "mb-3 mt-4 w-50 offset-md-3">
+				<p class = "m-1"><b>Дата прививки АКДС</b></p>
+				<input class="form-control border border-primary border-2" id="datetime" type="date">
+			</div>
+			<div class = "mb-3 mt-4 w-50 offset-md-3">
+				<p class = "m-1"><b>Дата прививки от полиомиелита</b></p>
+				<input class="form-control border border-primary border-2" id="datetime" type="date">
+			</div>
+
+			<div class = "kidSubmitSquad mb-3 mt-4 w-30 offset-md-3">
+				<div class="kidAddSquad1">
+					<form class="row row-cols-lg-auto g-3 align-items-center">
+					  <div class="col-12">
+					    <div class = "mt-3">
+					     	<p>Добавить в отряд №3</p>
+					    </div>
+					  </div>
+
+					  <div class="col-12">
+					    <button type="submit" class="btn btn-secondary">Добавить</button>
+					  </div>
+
+					  <div class="col-12">
+					  	<p style = "padding-top: 10px">Осталось 1 мест</p>
+					  </div>
+					</form>
+				</div>
+
+				<div class="kidAddSquad2">
+					<form class="row row-cols-lg-auto g-3 align-items-center">
+					  <div class="col-12">
+					    <div class = "mt-3">
+					     	<p>Добавить в отряд №4</p>
+					    </div>
+					  </div>
+
+					  <div class="col-12">
+					    <button type="submit" class="btn btn-secondary">Добавить</button>
+					  </div>
+
+					  <div class="col-12">
+					  	<p style = "padding-top: 10px">Осталось 20 мест</p>
+					  </div>
+					</form>
+				</div>
+			</div>
+
+		
+			<div class="vaccFiles">
+				<form class="row row-cols-lg-auto g-3 align-items-center mb-3 w-50 offset-md-3">
+					<div class="col-12">
+						<div class = "mt-3">
+							<input type="checkbox" id = "consent" >Отказ от прививок
+						</div>
+					</div>
+
+					<div class="col-12">
+						<button type="button" class="btn btn-secondary mt-3"><a class = "text-decoration-none text-white" href="#" download>Скачать форму отказа от прививок</a></button>
+					</div>
+				</form>
+
+				<form class="row row-cols-lg-auto g-3 align-items-center mb-3 w-50 offset-md-3">
+					<div class="col-12">
+						<div class = "mt-3">
+							<input type="checkbox" id = "consent" >Имеется медотвод
+						</div>
+					</div>
+
+					<!--<div class="col-12">
+						<input class="form-control mt-3" type="file" id="formFileMultiple" multiple>
+					</div>-->
+				</form>
+			</div>
+			<div class = "train mb-3 w-50 offset-md-3">
+				<p><b>Билеты на поезд</b></p>
+				<input type="checkbox" id = "there" >Туда
+				<input class = "trainBack" type="checkbox" id = "back" >Обратно
+			</div>
+			
+			<form class="mb-3 w-50 offset-md-3">
+				<button type="submit" class="btn btn-secondary float-end w-25" id = "applyBtn">Подать заявку</button>
+			</form>
+			<!--
+			<script>
+				function applyData() {
+					var element = document.getElementById('applyBtn');
+					var fio = document.querySelector('.fioFP').value;
+					console.log(fio);
+				}
+
+				document.getElementById('applyBtn').onclick = applyData;
+				
+
+				 
+			</script>-->
+		</div>
+
+			
+
+
+	
+{% endblock %}
+

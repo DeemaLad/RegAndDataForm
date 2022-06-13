@@ -1,0 +1,64 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block content %}
+
+	<div class="vaccination">
+		<div class="mb-3 mt-4 w-50 offset-md-3 ">
+			<p class = "m-1"><b>СНИЛС</b></p>
+			<input class="form-control border border-primary border-2" type="text" placeholder="172-838-944 53">
+		</div>
+		<div class="mb-3 mt-4 w-50 offset-md-3 ">
+			<p class = "m-1"><b>Полис</b></p>
+			<input class="form-control border border-primary border-2" type="text" placeholder="8593603475321247">
+		</div>
+		<div class = "mt-4 offset-md-3 w-50">
+			<p class = "m-1"><b>Ксерокопия сертификата о прививках</b></p>
+			<input class="form-control " type="file" id="formFileMultiple" multiple>
+		</div>
+		<div class = "mb-3 mt-4 w-50 offset-md-3">
+			<p class = "m-1"><b>Дата прививки БЦЖ</b></p>
+			<input class="form-control border border-primary border-2" id="datetime" type="date">
+		</div>
+		<div class = "mb-3 mt-4 w-50 offset-md-3">
+			<p class = "m-1"><b>Дата прививки АКДС</b></p>
+			<input class="form-control border border-primary border-2" id="datetime" type="date">
+		</div>
+		<div class = "mb-3 mt-4 w-50 offset-md-3">
+			<p class = "m-1"><b>Дата прививки от полиомиелита</b></p>
+			<input class="form-control border border-primary border-2" id="datetime" type="date">
+		</div>
+		<div class="vaccFiles">
+			<form class="row row-cols-lg-auto g-3 align-items-center mb-3 w-50 offset-md-3">
+				<div class="col-12">
+					<div class = "mt-3">
+						<input type="checkbox" id = "consent" >Отказ от прививок
+					</div>
+				</div>
+
+				<div class="col-12">
+					<button type="button" class="btn btn-secondary mt-3"><a class = "text-decoration-none text-white" href="#" download>Скачать форму отказа от прививок</a></button>
+				</div>
+			</form>
+
+			<form class="row row-cols-lg-auto g-3 align-items-center mb-3 w-50 offset-md-3">
+				<div class="col-12">
+					<div class = "mt-3">
+						<input type="checkbox" id = "consent" >Имеется медотвод
+					</div>
+				</div>
+
+				<div class="col-12">
+					<input class="form-control mt-3" type="file" id="formFileMultiple" multiple>
+				</div>
+			</form>
+		</div>
+
+		<div class = "train mt-3">
+			<p>Билеты на поезд</p>
+			<input type="checkbox" id = "there" >Туда
+			<input type="checkbox" id = "back" >Обратно
+		</div>
+	</div>
+		
+
+{% endblock %}
